@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-cyber-bg: #050816;
+  --color-cyber-card: rgba(21, 27, 47, 0.45);
+  --color-cyber-card-light: rgba(255, 255, 255, 0.03);
+  --color-cyber-blue: #00e5ff;
+  --color-cyber-purple: #8b5cf6;
+  --color-cyber-green: #00ff88;
+  --color-cyber-red: #ff4d6d;
+  --color-cyber-orange: #ffb020;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050816;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00e5ff80;
+}
+
+/* Base Body Radial Gradient - Frosted Glass Theme Core */
+html, body, #root, .min-h-screen {
+  background: radial-gradient(circle at 0% 0%, #0b1220 0%, #050816 100%) !important;
+}
+
+/* Security Pulse & Cyber Glow Effects */
+@keyframes cyber-pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.15);
+    border-color: rgba(0, 229, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.45);
+    border-color: rgba(0, 229, 255, 0.6);
+  }
+}
+
+@keyframes critical-pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 77, 109, 0.15);
+    border-color: rgba(255, 77, 109, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 77, 109, 0.45);
+    border-color: rgba(255, 77, 109, 0.6);
+  }
+}
+
+@keyframes radar-sweep {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes grid-scroll {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 40px;
+  }
+}
+
+.animate-cyber-pulse {
+  animation: cyber-pulse 3s infinite ease-in-out;
+}
+
+.animate-critical-pulse {
+  animation: critical-pulse 2s infinite ease-in-out;
+}
+
+.animate-radar {
+  animation: radar-sweep 8s linear infinite;
+}
+
+/* Frosted Glass Theme Panel and Container Overrides */
+.glass-panel,
+.bg-slate-900\/40,
+.bg-\[\#151B2F\]\/40,
+.bg-\[\#151B2F\]\/60,
+.bg-slate-950\/40,
+.bg-slate-950\/60,
+.bg-slate-900,
+.bg-slate-950,
+.bg-\[\#151B2F\],
+.bg-slate-900\/95 {
+  background: rgba(21, 27, 47, 0.45) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+  border-radius: 16px !important;
+}
+
+/* Sidebar Specific Frosted Overrides with premium glassmorphism */
+aside {
+  background: rgba(5, 8, 22, 0.45) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(24px) saturate(170%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(170%) !important;
+  box-shadow: 4px 0 30px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Custom premium glassmorphism navbar class with blur and semi-transparent background */
+.glass-navbar {
+  background: rgba(5, 8, 22, 0.55) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.45) !important;
+  border-radius: 0px !important;
+}
+
+/* Inner Glass Cards & Dynamic Content List Items */
+.incident-item,
+.bg-\[\#151B2F\]\/40,
+.bg-slate-900\/50,
+.bg-slate-950\/50,
+.bg-slate-900\/10,
+.bg-\[\#151B2F\]\/60 {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(8px) !important;
+  border-radius: 12px !important;
+}
+
+/* Active sidebar navigation states */
+[id^="sidebar-item-"].bg-\[\#151B2F\],
+button[id^="sidebar-item-"].bg-\[\#151B2F\] {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #00e5ff !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.1) !important;
+}
+
+/* Glowing text effects */
+.glow-text-blue {
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.6);
+}
+
+.glow-text-green {
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
+}
+
+.glow-text-red {
+  text-shadow: 0 0 10px rgba(255, 77, 109, 0.6);
+}
+
+.glow-text-purple {
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.6);
+}
+
+.cyber-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+}
+
+.cyber-grid-active {
+  animation: grid-scroll 20s linear infinite;
+}
+
+/* Custom cyber scanline overlay */
+.cyber-scanline {
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-scanline::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 10;
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   LINGUAMATEAI BLUE-TO-CYAN GRADIENT BUTTON OVERRIDES (AS PER IMAGE REFERENCE)
+   ========================================================================== */
+
+/* 1. Map standard primary gradient class used across the site to our beautiful Blue-to-Cyan gradient */
+.bg-gradient-to-r.from-cyber-blue.to-cyber-purple,
+.bg-gradient-to-r.from-cyber-purple.to-cyber-blue,
+.bg-gradient-to-tr.from-cyber-blue.to-cyber-purple,
+.bg-gradient-to-tr.from-cyber-purple.to-cyber-blue {
+  background-image: linear-gradient(135deg, #1A56DB 0%, #00E5FF 100%) !important;
+  color: #050816 !important; /* Premium dark navy text color for perfect contrast on bright gradient */
+}
+
+/* 2. Custom helper class for the exact blue-to-cyan gradient */
+.btn-lingua-gradient {
+  background-image: linear-gradient(135deg, #1A56DB 0%, #00E5FF 100%) !important;
+  color: #050816 !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 4px 15px rgba(26, 86, 219, 0.25) !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.btn-lingua-gradient:hover {
+  filter: brightness(1.15) !important;
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.5) !important;
+  transform: translateY(-1px) !important;
+}
+
+.btn-lingua-gradient:active {
+  transform: translateY(1px) scale(0.98) !important;
+}
+
+/* 3. Style only the specific designated primary action buttons with the beautiful blue-to-cyan gradient */
+#btn-hero-launch,
+#btn-nav-demo,
+#btn-nav-login {
+  background-image: linear-gradient(135deg, #1A56DB 0%, #00E5FF 100%) !important;
+  background-color: transparent !important;
+  color: #050816 !important; /* Perfect contrast slate text */
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 4px 15px rgba(26, 86, 219, 0.2) !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+#btn-hero-launch:hover,
+#btn-nav-demo:hover,
+#btn-nav-login:hover {
+  filter: brightness(1.15) !important;
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.45) !important;
+  transform: translateY(-1px);
+}
+
+#btn-hero-launch:active,
+#btn-nav-demo:active,
+#btn-nav-login:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* 4. Ensure correct and beautiful padding, gap, and display alignment on primary buttons */
+#btn-hero-launch,
+#btn-nav-demo,
+#btn-nav-login,
+.bg-gradient-to-r.from-cyber-blue.to-cyber-purple {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important; /* Perfect spacing of text and icons inside buttons */
+}
+
+/* 5. Custom transition for all other standard site buttons */
+button:not(.btn-lingua-gradient) {
+  transition: all 0.15s ease-in-out;
+}
+
+button:not(.btn-lingua-gradient):active {
+  transform: scale(0.97);
+}
+
